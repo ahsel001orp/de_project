@@ -1,0 +1,802 @@
+
+Всего нашлось - 70
+Добавлено новых - 43
+Количество ID к которым добавлена 2 профессия - 27
+Python - 263
+SQL - 248
+Английский язык - 98
+PostgreSQL - 95
+Английский — B2 — Средне-продвинутый - 92
+ETL - 83
+Английский — B1 — Средний - 60
+Kubernetes - 52
+Big Data - 52
+Clickhouse - 51
+Linux - 47
+Cистемы управления базами данных - 43
+База данных: Olap - 43
+Apache Airflow - 40
+DWH - 40
+Hadoop - 40
+Docker - 39
+Java - 38
+Apache Kafka - 35
+Английский — C1 — Продвинутый - 33
+CI/CD - 32
+Airflow - 28
+Greenplum - 27
+ML - 26
+Git - 26
+MS SQL - 25
+Spark - 25
+Grafana - 24
+ORACLE - 22
+pandas - 22
+Ansible - 21
+NoSQL - 20
+Prometheus - 19
+Amazon Web Services - 18
+Apache Spark - 18
+NLP - 18
+MySQL - 17
+Bash - 17
+Golang - 17
+Node.js - 16
+Zabbix - 15
+React - 15
+Scala - 15
+AWS - 14
+REST API - 14
+DevOps - 14
+Machine Learning - 13
+Power BI - 13
+LLM - 13
+C++ - 12
+Gitlab - 12
+Kafka - 12
+API - 12
+MongoDB - 12
+AI - 12
+TypeScript - 11
+Jenkins - 11
+Data Science - 10
+C# - 10
+DBT - 10
+PyTorch - 10
+S3 - 10
+Математическая статистика - 9
+Алгоритмы и структуры данных - 9
+Atlassian Jira - 9
+Redis - 9
+UI - 9
+Numpy - 9
+Azure - 9
+Управление командой - 8
+SQL Activity Monitor - 8
+Data Analysis - 8
+Apache NiFi - 8
+Amazon Redshift - 8
+RESTful API - 8
+Fivetrain - 8
+GitLab CI - 8
+Databricks - 8
+SurveySparrow - 8
+Express.js - 8
+Qualtrics - 8
+СУБД - 8
+Cisco - 8
+Perl - 8
+Rundeck - 8
+Natural Language Processing - 7
+Product Management - 7
+Базы данных - 7
+Terraform - 7
+JavaScript - 7
+Data Engineering - 7
+TensorFlow - 7
+A/B тесты - 7
+User Experience - 7
+TCP/IP - 7
+Firebase - 7
+PySpark - 7
+Postgres - 7
+UX - 7
+Аналитическое мышление - 6
+MS SQL Server - 6
+BI - 6
+Figma - 6
+Nginx - 6
+Бизнес-анализ - 5
+Продуктовые метрики - 5
+Машинное обучение - 5
+Relational Database Management System - 5
+Работа с базами данных - 5
+Atlassian Confluence - 5
+Google Analytics - 5
+Deep Learning - 5
+Scikit-learn - 5
+OLAP - 5
+RLHF - 5
+ELT - 5
+Android - 5
+GitHub - 5
+Ceph - 5
+QA - 5
+Roadmap - 5
+RAG - 5
+Juniper - 5
+RabbitMQ - 5
+MLflow - 5
+BGP - 5
+ИТ-архитектура - 4
+Системный анализ - 4
+Математический анализ - 4
+Регрессионное тестирование - 4
+Продуктовая стратегия - 4
+Ручное тестирование - 4
+Разработка продуктовой концепции - 4
+Анализ данных - 4
+Функциональное тестирование - 4
+Marketing Analysis - 4
+Product Development - 4
+Adobe Illustrator - 4
+Data Mining - 4
+Growth Hacking - 4
+User Interface - 4
+Spring Framework - 4
+Apache Hive - 4
+Cockroach - 4
+User Flow - 4
+Data Engineer - 4
+Amplitude - 4
+Matplotlib - 4
+Business English - 4
+Web Design - 4
+Jupyter Notebook - 4
+JSON - 4
+OSPF - 4
+YDB - 4
+GraphQL - 4
+ELK - 4
+Ubuntu - 4
+Go - 4
+Tableau - 4
+REST - 4
+ETL/ELT - 4
+Kotlin - 4
+Postman - 4
+Huawei - 4
+iOS - 4
+Flink - 4
+Metabase - 4
+Helm - 4
+MLOps - 4
+Русский — C2 — В совершенстве - 3
+RT/NRT обработка - 3
+Microservices architecture - 3
+Техническая поддержка - 3
+Веб-аналитика - 3
+Техническая документация - 3
+Английский — C2 — В совершенстве - 3
+Администрирование серверов Linux - 3
+Яндекс.Метрика - 3
+Английский — A1 — Начальный - 3
+Маркетинговый анализ - 3
+Customer Experience - 3
+Azure Data Factory - 3
+Тестирование - 3
+Azure Synapse Analytics - 3
+Веб-дизайн - 3
+Recommender systems - 3
+OpenStack - 3
+AI Copilot - 3
+Adobe InDesign - 3
+.NET Core - 3
+Informatica - 3
+Usability - 3
+Windows Server - 3
+Data Platform - 3
+blockchain - 3
+Сloud services - 3
+Snowflake - 3
+Fine-tuning - 3
+Agile/Scrum - 3
+product analysis - 3
+Google Cloud - 3
+Data Lakehouse - 3
+machine learning - 3
+OLTP - 3
+Agile - 3
+SSIS - 3
+Camunda - 3
+CentOS - 3
+CosmosDB - 3
+C/C++ - 3
+SFT - 3
+Regex - 3
+XGBoost - 3
+Selenium - 3
+HTML - 3
+MS Excel - 3
+Pytest - 3
+FastAPI - 3
+CSS - 3
+English - 3
+VMware - 3
+Django - 3
+CatBoost - 3
+MikroTik - 3
+Scrum - 3
+VLAN - 3
+HAProxy - 3
+Аналитический склад ума - 2
+Обучение и развитие - 2
+Интерпретация данных - 2
+Разработка поисковых технологий - 2
+Дистанционное обучение - 2
+Мотивация сотрудников - 2
+Разработка бизнес-требований - 2
+Поисковая оптимизация сайтов - 2
+Преподаватель - 2
+Администрирование баз данных - 2
+Проведение презентаций - 2
+Системный подход - 2
+Управление стейкхолдерами - 2
+Внешняя оптимизация сайта - 2
+Наставничество - 2
+Многозадачность - 2
+Проведение тестирований - 2
+Визуализация данных - 2
+Управление бэклогом - 2
+Администрирование сетевого оборудования - 2
+Когортный анализ - 2
+Микросервисная архитектура - 2
+Сетевые технологии - 2
+Аудит поисковой видимости сайта - 2
+Исполнительность - 2
+Постановка задач разработчикам - 2
+1С программирование - 2
+Автоматизированное тестирование - 2
+Групповое обучение - 2
+Информационные технологии - 2
+SEO оптимизация - 2
+Business intelligence - 2
+Value Proposition Canvas - 2
+Backend Development - 2
+Product Led Growth - 2
+Data Architecture - 2
+B2B-маркетинг - 2
+Distributed Systems - 2
+Prompt Engineering - 2
+RESTful APIs - 2
+Data Quality - 2
+Django Framework - 2
+Тренинги - 2
+Machine learning - 2
+Web Scraping - 2
+Product Analytic - 2
+Data collection - 2
+Confluence - 2
+Navigation - 2
+Unreal Engine - 2
+Web Crawling - 2
+Jetpack Compose - 2
+Docker-compose - 2
+Test case - 2
+User Story - 2
+Qlik Sense - 2
+Google Ads - 2
+Apache Cassandra - 2
+SQLAlchemy - 2
+Product Analysis - 2
+Informatica PC - 2
+DevSecOps - 2
+.NET Framework - 2
+Scalability - 2
+Gravity UI - 2
+VRRP - 2
+Vertica - 2
+JTBD - 2
+Hive - 2
+IT - 2
+AirByte - 2
+ITSM - 2
+SSAS - 2
+SRE - 2
+ELT/ETL - 2
+sklearn - 2
+RDS - 2
+SciPy - 2
+SuperSet - 2
+UML - 2
+Query - 2
+dbt - 2
+JUnit - 2
+GCP - 2
+k8s - 2
+Ahrefs - 2
+BPMN - 2
+Jupyter - 2
+DBeaver - 2
+Nexus - 2
+BigData - 2
+Lambda - 2
+CCNA - 2
+SOLID - 2
+nlp - 2
+PPC - 2
+PHP - 2
+R - 2
+K8S - 2
+SEO - 2
+Groovy - 2
+Debezium - 2
+EC2 - 2
+Hilt - 2
+AirFlow - 2
+Mixpanel - 2
+next.js - 2
+1С - 2
+CJM - 2
+asyncio - 2
+CV - 2
+Paging - 2
+XML - 2
+Mariadb - 2
+Dagger - 2
+CCNP - 2
+Superset - 2
+Room - 2
+Разработка и внедрение KPI - 1
+Olap (online analytical processing) - 1
+ИТ-инфраструктура - 1
+Русский — B2 — Средне-продвинутый - 1
+конкурентный анализ - 1
+Default Interface Methods - 1
+1С Налоговый учет - 1
+Активные продажи - 1
+Составление семантического ядра - 1
+Архитектурное проектирование - 1
+аналитические системы - 1
+Коммуникативные навыки - 1
+Прикладная статистика - 1
+Business Intelligence Systems - 1
+Работа в команде - 1
+Работа с файловыми источниками - 1
+Подготовка презентаций - 1
+Аналитика продаж - 1
+Стратегия развития архитектуры - 1
+Риск аналитика - 1
+b2b исследования - 1
+Найм персонала - 1
+Написание тестовой документации - 1
+Анализ бизнес показателей - 1
+Управление информационной безопасностью - 1
+Исследовательский анализ данных - 1
+Прогнозирование - 1
+сетевые технологии - 1
+Модели описания архитектуры - 1
+Frontend-разработка - 1
+Программное проектирование - 1
+Перфекционизм - 1
+Налоговый учет - 1
+Управление инновациями - 1
+Межсетевые экраны - 1
+Написание тест-кейсов - 1
+JupyterHub, Airflow, Spark, Kubernetes - 1
+Инструменты описания архитектуры - 1
+Русский — C1 — Продвинутый - 1
+Организаторские навыки - 1
+Основы маркетинга - 1
+Сетевые протоколы - 1
+Проектирование - 1
+Внутренняя оптимизация сайта - 1
+Регрессионный анализ - 1
+Кроссбраузерное тестирование - 1
+Бухгалтерский учёт - 1
+BI solution configuration - 1
+Управление портфелем продуктов - 1
+microsoft sql management studio - 1
+Написание автотестов - 1
+Деловая коммуникация - 1
+Цифровая трансформация - 1
+Логическое мышление - 1
+Data Science Analytical Platform - 1
+Site reliability engineering - 1
+Обработка потоковых данных - 1
+Анализ требований - 1
+Управление интернет-проектами - 1
+Анализ бизнес-процессов - 1
+Маркетинговые исследования - 1
+Machine Learning Engineer - 1
+Теория вероятностей - 1
+Регресcионное тестирование - 1
+Системная интеграция - 1
+Тестирование Android - 1
+Прототипирование - 1
+1С Бухгалтерский учет - 1
+Управление изменениями - 1
+Телекоммуникационное и сетевое оборудование - 1
+Инженер по ручному тестированию - 1
+1С: Бухгалтерия - 1
+Интеграционное тестирование - 1
+Навыки презентации - 1
+Анализ временных рядов - 1
+Знание BI-инструментов - 1
+Тестирование пользовательского интерфейса - 1
+Теория вероятности - 1
+Автоматизация бизнес-процессов - 1
+Ораторское мастерство - 1
+Разработка технических заданий - 1
+Проектирование инженерных систем - 1
+Сетевое оборудование - 1
+Немецкий — B2 — Средне-продвинутый - 1
+Написание технических текстов - 1
+Английский язык (Intermediate) - 1
+Обработка инцидентов - 1
+Руководство коллективом - 1
+Системы мониторинга сетей - 1
+Управление ожиданиями - 1
+Работа с данными - 1
+Управление ресурсами - 1
+Самостоятельность - 1
+Противодействие мошенничеству - 1
+Рекомендательные системы - 1
+Регресионное тестирование - 1
+Настройка сетевых подключений - 1
+Деловое общение - 1
+1С: Зарплата и управление персоналом - 1
+Стратегический менеджмент - 1
+Конкурентная аналитика - 1
+Инициативность - 1
+PyTorch, TensorFlow, Keras - 1
+Инженер по тестированию - 1
+Управление знаниями‎ - 1
+1С Управленческий учет - 1
+UX-исследования - 1
+Рефакторинг кода - 1
+Математическое моделирование - 1
+тестирование ios - 1
+Риск менеджмент - 1
+Подбор персонала - 1
+предиктивные модели - 1
+Управление разработкой - 1
+Тестирование API - 1
+Риск-менеджмент - 1
+Deep Learning Engineer - 1
+1С Аванкор - 1
+Аналитика - 1
+Django Rest Framework - 1
+BI-система - 1
+AWS CloudFormation - 1
+Статистика - 1
+B2B Продажи - 1
+Computer Vision Engineer - 1
+Рекрутмент - 1
+technical English - 1
+GPT-like-модели - 1
+СУБД Porstgres - 1
+Unit-экономика - 1
+Clean Architecture - 1
+Minimal Viable Product - 1
+Анализ рынка - 1
+1С закупки - 1
+Localization testing - 1
+ML алгоритмы - 1
+Research Engineer - 1
+Internet Marketing - 1
+Business Development - 1
+Leadership Skills - 1
+Тестировщик - 1
+Google Tag Manager - 1
+MES-системы - 1
+Time Series Analysis - 1
+High-Frequency Trading - 1
+Mathematical Statistics - 1
+Онбординг - 1
+High Availability - 1
+Мониторинг - 1
+Software Development - 1
+Product-market fit - 1
+Microsoft SQL Server - 1
+Analytical skills - 1
+маркетинг - 1
+software engineer - 1
+Русский язык - 1
+архитектор - 1
+System Architecture - 1
+Cloud Infrastructure - 1
+OC Linux (RHEL, CentOS - 1
+Project management - 1
+Integration testing - 1
+Data Scientist - 1
+Big Data Testing - 1
+Cloud Native - 1
+snowflake etc - 1
+Multi-agent - 1
+Банки - 1
+Product design - 1
+Stream API - 1
+Azure SQL - 1
+full stack - 1
+АСУ ТП - 1
+ETL Informatica - 1
+Deltalake - 1
+System Analysis - 1
+LLM deployment - 1
+Database Design - 1
+Forecasting - 1
+Transact-SQL - 1
+Cloud Computing - 1
+Java 8+ APIs - 1
+User Persona - 1
+DDoS-атаки - 1
+Arenadata DB - 1
+reputation - 1
+Palo Alto - 1
+MBS Navision - 1
+Oracle Pl/SQL - 1
+Vaadin UI - 1
+Team management - 1
+Apache JMeter - 1
+ETL Development - 1
+Arenadata - 1
+QA Automation - 1
+Android SDK - 1
+GitHub Actions - 1
+Android Studio - 1
+Data Analyst - 1
+Kuberflow - 1
+Elasticsearch - 1
+PowerShell - 1
+А/В тесты - 1
+Elastcisearch - 1
+Ad Hoc Analysis - 1
+Microservices - 1
+Databases - 1
+Artifactory - 1
+Computer Vision - 1
+Fortigate - 1
+Embedded Linux - 1
+Bug Reporting - 1
+Google Tag - 1
+Data Stream - 1
+1С склад - 1
+Data Testing - 1
+B2B Marketing - 1
+DataSciense - 1
+OpenAI GPT - 1
+Rabbit MQ - 1
+Time-series - 1
+Engineering - 1
+Objective-C - 1
+data science - 1
+Adobe Photoshop - 1
+Appmetrica - 1
+Yandex Cloud - 1
+Check Point - 1
+Computer Science - 1
+Тестер - 1
+OpenShift - 1
+Screaming Frog - 1
+UI/UX tools - 1
+Битрикс24 - 1
+atlassian - 1
+Yocto-Linux - 1
+Termidesk - 1
+AstraLinux - 1
+Code Quality - 1
+Design Patterns - 1
+Data Solutions - 1
+QlikSense - 1
+AWS CloudWatch - 1
+LangChain - 1
+Problem Solving - 1
+Time Series Data - 1
+Networking - 1
+Hibernate - 1
+Automation - 1
+Spring Data - 1
+Java Time - 1
+Instagram - 1
+Amazon RDS - 1
+WebTransport - 1
+Apache Hadoop - 1
+WebSocket - 1
+Observability - 1
+sql developer - 1
+microservices - 1
+OpenAI API - 1
+Lakehouse - 1
+TeserFlow - 1
+Blockchain - 1
+wireguard - 1
+Game Design - 1
+MS PowerPoint - 1
+Скоринг - 1
+Researcher - 1
+Java Core - 1
+Data Platfrom - 1
+Data Governance - 1
+Object storage - 1
+Python 3+ - 1
+Graphic Design - 1
+React Native - 1
+QA manual - 1
+Java EE - 1
+Access - 1
+EDF - 1
+OpenBMC - 1
+HIPAA - 1
+KVM - 1
+ORC - 1
+OLE - 1
+B2C SaaS - 1
+FreeIPA - 1
+HDFS - 1
+Swagger - 1
+RBD - 1
+WEB - 1
+MES - 1
+CDC - 1
+PyTorth - 1
+ddos - 1
+ЗРДС - 1
+gamedev - 1
+evm - 1
+Harbor - 1
+LGD - 1
+RHEL - 1
+DFD - 1
+Data QA - 1
+Prophet - 1
+RedPanda - 1
+Charles - 1
+DevTools - 1
+OWASP - 1
+airbyte - 1
+BigQuery - 1
+gamefi - 1
+Qwery - 1
+STP - 1
+K8s - 1
+Solidity - 1
+vSphere - 1
+Celery - 1
+PowerBI - 1
+ECS - 1
+Excel - 1
+gRPC - 1
+Claude - 1
+JDBC - 1
+BMC - 1
+МСФО - 1
+MPLS - 1
+Web3 - 1
+CRM - 1
+Nifi - 1
+Pyton - 1
+PyCharm - 1
+R&D - 1
+IPSec - 1
+WAAP - 1
+ARIMA - 1
+Unix - 1
+CTE - 1
+Sketch - 1
+ARPU - 1
+ERP - 1
+NIFI - 1
+Keras - 1
+Asana - 1
+DataLens - 1
+SDN - 1
+XDP - 1
+DNS - 1
+CustDev - 1
+Fraud - 1
+SDS - 1
+GPT - 1
+DBA - 1
+Tester - 1
+meltano - 1
+A/B - 1
+pgadmin - 1
+RSVP - 1
+EAD - 1
+Hardhat - 1
+b4com - 1
+Drivers - 1
+Parquet - 1
+ChatBot - 1
+JPA - 1
+SSiS - 1
+airflow - 1
+Proxmox - 1
+Flutter - 1
+Appium - 1
+Truffle - 1
+CSS3 - 1
+Trino - 1
+Pivot - 1
+GNI - 1
+скд - 1
+AirFLow - 1
+Swift - 1
+Citrix - 1
+БП3.0 - 1
+VDI - 1
+LDP - 1
+ByteBase - 1
+ASP.NET - 1
+ESXi - 1
+Mockito - 1
+Plotly - 1
+implicit - 1
+CephFS - 1
+СКД - 1
+CR - 1
+Debian - 1
+PD - 1
+DHCP - 1
+aruba - 1
+IIoT - 1
+С# - 1
+s3 - 1
+Ataccama - 1
+WebRTC - 1
+Dart - 1
+ADQM - 1
+Yandex - 1
+DPI - 1
+WAF - 1
+Delphix - 1
+lstm - 1
+HFT - 1
+Pulumi - 1
+SAP - 1
+Dremio - 1
+OpenLDAP - 1
+Rust - 1
+CDO - 1
+ITIL - 1
+TestRail - 1
+remote - 1
+ERP УХ - 1
+MQ - 1
+Next.js - 1
+GAN - 1
+Semrush - 1
+Sigma - 1
+DS - 1
+Prompt - 1
+VXLAN - 1
+PostGIS - 1
+LTV - 1
+Unity - 1
+Fine BI - 1
+SSRS - 1
+MSSQL - 1
+NiFi - 1
+TeamCity - 1
+HTML5 - 1
+Redshift - 1
+Zeppelin - 1
+Symfony - 1
+TCP - 1
+Crypto - 1
+backend - 1
+Sybase - 1
+Uplift - 1
+Fintech - 1
+Redash - 1
+RESTful - 1
+iDRAC - 1
+Jira - 1
+AutoGPT - 1
+Facebook - 1
+RWA - 1
+LLaMA - 1
+Design - 1
+OpenVPN - 1
+Pricing - 1

@@ -1,0 +1,6 @@
+venv/
+airflow/logs
+*.sh
+some_useful.txt
+utils/__pycache__/
+airflow/dags/__pycache__/
