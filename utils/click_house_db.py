@@ -103,6 +103,18 @@ class ClickHouseDB:
                         GROUP BY element
                         ORDER BY count DESC
                         ''')
+
+    def get_vacancies(self, in_key_skills: list) -> list:
+        return self.get_query(f'''
+                    SELECT 
+                    length(arrayIntersect(key_skills, {in_key_skills})) AS intersect_count,
+                    id, name, formatDateTime(publicationDate,'%d.%m.%Y'), company_visible_name,
+                    company_site_url, area_name, key_skills ,translation FROM de_project.vacancies
+                    HAVING intersect_count>2 ORDER BY toDayOfYear(publicationDate) DESC, intersect_count DESC LIMIT 50
+                    ''') 
+
+    def get_vacancy(self, id: str) -> list:
+        return self.get_query(f'SELECT company_visible_name, description from de_project.vacancies WHERE id={id}')
     
     def close_connection(self):
         self.client.close_connections()
@@ -110,7 +122,12 @@ class ClickHouseDB:
 
 if __name__ == '__main__':
     CH = ClickHouseDB()
-    print(CH.get_count_skills())
+    key_skils = [
+        'Python','SQL','ETL','Linux',
+        'Английский — B1 — Средний','Docker','Apache Airflow',
+        'DWH','Git','ORACLE','Airflow','API','REST API', 'PostgreSQL'
+    ]
+    print(CH.get_vacancies(key_skils))
     #CH.get_old_prof_ids('data engineer')
     # for skill in CH.get_count_skills():
     #     print(skill)

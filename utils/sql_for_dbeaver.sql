@@ -46,6 +46,14 @@ FROM
 GROUP BY element
 ORDER BY count DESC
 
+SELECT 
+length(arrayIntersect(key_skills, ['Python','SQL','ETL','Linux',
+'Английский — B1 — Средний','Docker','Apache Airflow','DWH','Git',
+'ORACLE','Airflow','API','REST API'])) AS intersect_count,
+de_project.vacancies.* FROM de_project.vacancies 
+ORDER BY toDayOfYear(publicationDate) DESC, intersect_count DESC
+LIMIT 100
+
 SELECT * FROM de_project.vacancies WHERE has(key_skills,'МСФО')
 
 --удаляем кривую загрузку
@@ -68,4 +76,3 @@ id in (
 
 ALTER TABLE de_project.ids_from_req_profession DELETE WHERE 
 req_profession = 'python data backend'
-

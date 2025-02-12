@@ -2,7 +2,7 @@ from requests import session
 from bs4 import BeautifulSoup as BS
 from json import loads
 from datetime import datetime
-from click_house_db import *
+from click_house_db import ClickHouseDB as CHDB
 
 
 url = 'https://hh.ru/vacancy'
@@ -17,7 +17,7 @@ class VacDownloader:
         self.hh_session = session()
         self.vacancies_id = []
         self.page_num = 0
-        self.cli_db = ClickHouseDB()
+        self.cli_db = CHDB()
         self.err = ''
         self.count_vac = 0
         self.cont_new_vac = 0
@@ -138,8 +138,8 @@ class VacDownloader:
 
 if __name__ == '__main__':
     # vacancies = 'IT-инженер'
-    # vacancies = 'data engineer'
-    vacancies = 'Дата инженер'
+    vacancies = 'data engineer'
+    # vacancies = 'Дата инженер'
     # vacancies = 'python data backend'
     VD = VacDownloader(vacancies)    
     VD.get_IDs()

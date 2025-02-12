@@ -1,0 +1,185 @@
+<!--
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1251">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice 4.1.14  (Win32)">
+	<META NAME="AUTHOR" CONTENT="Алексей Романов">
+	<META NAME="CREATED" CONTENT="20230918;5390000">
+	<META NAME="CHANGEDBY" CONTENT="Алексей Романов">
+	<META NAME="CHANGED" CONTENT="20230918;8290000">
+	<META NAME="AppVersion" CONTENT="15.0000">
+	<META NAME="DocSecurity" CONTENT="0">
+	<META NAME="HyperlinksChanged" CONTENT="false">
+	<META NAME="LinksUpToDate" CONTENT="false">
+	<META NAME="ScaleCrop" CONTENT="false">
+	<META NAME="ShareDoc" CONTENT="false">
+	<STYLE TYPE="text/css"> -->
+	<!--
+		@page { size: 21cm 29.7cm; margin-left: 3cm; margin-right: 1.5cm; margin-top: 2cm; margin-bottom: 2cm }
+		P { margin-bottom: 0.21cm; direction: ltr; color: #000000; line-height: 100%; widows: 2; orphans: 2 }
+		P.western { font-family: "Calibri", serif }
+		P.ctl { font-family: "Calibri" }
+		A:link { color: #0563c1; so-language: zxx; text-decoration: underline }
+		A:visited { color: #800000; so-language: zxx; text-decoration: underline }
+	-->
+<!--	</STYLE>
+</HEAD>
+<BODY LANG="ru-RU" TEXT="#000000" LINK="#0563c1" VLINK="#800000" DIR="LTR"> -->
+    <main class="content-pages">
+		<div class="scrollable-content">
+			<div class="services-description">
+<P CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="background: #00ff00">Отделу
+банковских технологий проработать вопрос о наличии технической
+возможности получения Банком от НБКИ дополнительной информации о
+размере среднемесячного платежа.</SPAN></FONT></FONT></P>
+<P CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" ALIGN=JUSTIFY STYLE="text-indent: 1.25cm; margin-bottom: 0cm">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Для реализации
+возможности получения Банком от НБКИ дополнительной информации о
+размере среднемесячного платежа, сотрудниками отдела кредитования
+было заключено дополнительное соглашение к текущему договору оказания
+услуг. В этом документе содержится пункт (2.3) с описанием
+возможности получения следующих сведений:</FONT></FONT></P>
+<P CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><BR></FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=3><I>&laquo;сведения
+о среднемесячных платежах, полученные исполнителем (НБКИ) от
+источников формирования кредитной истории, бюро кредитных историй,
+заключивших с Исполнителем соответствующие договоры, и других
+квалифицированных бюро кредитных историй, в случае обращения
+Заказчика во все квалифицированные бюро кредитных историй путем
+обращения к Исполнителю.&raquo;</I></FONT></FONT></P>
+<P CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" ALIGN=JUSTIFY STYLE="text-indent: 1.25cm; margin-bottom: 0cm">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Было принято
+решение, создать внутрибанковский сервис для получения сведений
+согласно этому пункту договора. Из документации следует, что такой
+функционал возможно реализовать только с использованием </FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN LANG="en-US">URL</SPAN></FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=3>
+сервиса, реализующего </FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN LANG="en-US">API</SPAN></FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=3>:
+<A HREF="https://reports.nbki.ru/qbch/">https://reports.nbki.ru/</A></FONT></FONT><A HREF="https://reports.nbki.ru/qbch/"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN LANG="en-US">qbch</SPAN></FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=3>/</FONT></FONT></A><FONT FACE="Times New Roman, serif"><FONT SIZE=3>
+, данный ресурс стал источником данных в новой системе.</FONT></FONT></P>
+<P CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" ALIGN=JUSTIFY STYLE="text-indent: 1.25cm; margin-bottom: 0cm">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>После согласования
+всех требований с сотрудниками кредитного отдела, отделом ОБТ было
+разработано клиент-серверное приложение, расположенное в локальной
+сети Банка по адресу: <A HREF="http://smp_service:5001/">http://smp_service:5001/</A>.
+Доступ к новому ресурсу ограничен, а также реализована ролевая
+модель, согласно которой обычный пользователь (не администратор)
+имеет доступ только к созданным им ранее запросам. Страница
+авторизации имеет вид, как показано на рисунке 1.</FONT></FONT></P>
+<P CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<a href="/static/img/%D0%A1%D0%9C%D0%9F%20%D0%B4%D0%BB%D1%8F%20%D0%A6%D0%91_html_m17a97a30.jpg" class="image-link">
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm"><IMG STYLE="display: block; margin-left: auto; margin-right: auto;" SRC="/static/img/%D0%A1%D0%9C%D0%9F%20%D0%B4%D0%BB%D1%8F%20%D0%A6%D0%91_html_m17a97a30.jpg" ALIGN=BOTTOM WIDTH=458 HEIGHT=385 BORDER=0></P>
+</a>
+<P CLASS="western" ALIGN=CENTER STYLE="    text-align-last:  center !important;"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Рисунок
+1. Страница Авторизации.</FONT></FONT></P>
+<P CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" ALIGN=JUSTIFY STYLE="text-indent: 1.25cm; margin-bottom: 0cm">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Основная страница
+для создания запроса поддерживает получение данных из ЦАБС &laquo;Инверсия&raquo;
+и имеет вид, как показано на рисунке 2</FONT></FONT></P>
+<P CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<a href="/static/img/%D0%A1%D0%9C%D0%9F%20%D0%B4%D0%BB%D1%8F%20%D0%A6%D0%91_html_3eb21220.jpg" class="image-link">
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm"><IMG STYLE="display: block; margin-left: auto; margin-right: auto;" SRC="/static/img/%D0%A1%D0%9C%D0%9F%20%D0%B4%D0%BB%D1%8F%20%D0%A6%D0%91_html_3eb21220.jpg" ALIGN=BOTTOM WIDTH=624 HEIGHT=384 BORDER=0></P>
+</a>
+<P CLASS="western" ALIGN=CENTER STYLE="    text-align-last:  center !important;"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Рисунок
+2. Основная страница для создания запроса.</FONT></FONT></P>
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" ALIGN=JUSTIFY STYLE="text-indent: 1.25cm; margin-bottom: 0cm">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Все запросы,
+созданные в новом приложении, сохраняются в трёх экземплярах:</FONT></FONT></P>
+<OL>
+	<LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>одна
+	копия со снятой подписью хранится в БД банка;</FONT></FONT></P>
+	<LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>вторая
+	копия со снятой подписью хранится в файловой системе сервера;</FONT></FONT></P>
+	<LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>третья
+	копия с наложенной цифровой подписью (.</FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN LANG="en-US">sig</SPAN></FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=3>),
+	также сохраняется в файловой системе сервера, данные сообщения
+	показаны на рисунке 3.</FONT></FONT></P>
+</OL>
+<P CLASS="western" ALIGN=JUSTIFY STYLE="text-indent: 1.25cm; margin-bottom: 0cm">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Для удобства
+пользователей реализован графический интерфейс для просмотра
+полученных от НБКИ сведений, показан на рисунке 4. </FONT></FONT>
+</P>
+<P CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<a href="/static/img/%D0%A1%D0%9C%D0%9F%20%D0%B4%D0%BB%D1%8F%20%D0%A6%D0%91_html_3b4bb036.jpg" class="image-link">
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm"><IMG STYLE="display: block; margin-left: auto; margin-right: auto;" SRC="/static/img/%D0%A1%D0%9C%D0%9F%20%D0%B4%D0%BB%D1%8F%20%D0%A6%D0%91_html_3b4bb036.jpg" ALIGN=BOTTOM WIDTH=624 HEIGHT=279 BORDER=0></P>
+</a>
+<P CLASS="western" ALIGN=CENTER STYLE="    text-align-last:  center !important;"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Рисунок
+3. Хранилище исходящих сообщений сервера.</FONT></FONT></P>
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm"><BR>
+</P>
+<a href="/static/img/%D0%A1%D0%9C%D0%9F%20%D0%B4%D0%BB%D1%8F%20%D0%A6%D0%91_html_5a2349cf.jpg" class="image-link">
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm"><IMG STYLE="display: block; margin-left: auto; margin-right: auto;" SRC="/static/img/%D0%A1%D0%9C%D0%9F%20%D0%B4%D0%BB%D1%8F%20%D0%A6%D0%91_html_5a2349cf.jpg" ALIGN=BOTTOM WIDTH=624 HEIGHT=300 BORDER=0></P>
+</a>
+<P CLASS="western" ALIGN=CENTER STYLE="    text-align-last:  center !important;"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Рисунок
+4. Интерфейс для просмотра архива полученных от НБКИ ответов.</FONT></FONT></P>
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" ALIGN=JUSTIFY STYLE="text-indent: 1.25cm; margin-bottom: 0cm">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Данные, приходящие в
+качестве ответов на запросы о среднемесячных платежах клиента от
+НБКИ, имеют </FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN LANG="en-US">xml</SPAN></FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=3>
+структуру, пример приведен на рисунке 5. Для удобства пользователей,
+разработанный сервис преобразует полученную информацию в более
+</FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=3><I>читабельный</I></FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=3>
+вид, а также автоматически рассчитывает общую сумму всех платежей
+клиента. Пример отображения приведен на рисунке 6.</FONT></FONT></P>
+<P CLASS="western" ALIGN=JUSTIFY STYLE="text-indent: 1.25cm; margin-bottom: 0cm">
+<BR>
+</P>
+<P CLASS="western" ALIGN=JUSTIFY STYLE="text-indent: 1.25cm; margin-bottom: 0cm">
+<BR>
+</P>
+<a href="/static/img/%D0%A1%D0%9C%D0%9F%20%D0%B4%D0%BB%D1%8F%20%D0%A6%D0%91_html_m39553d53.jpg" class="image-link">
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm"><IMG STYLE="display: block; margin-left: auto; margin-right: auto;" SRC="/static/img/%D0%A1%D0%9C%D0%9F%20%D0%B4%D0%BB%D1%8F%20%D0%A6%D0%91_html_m39553d53.jpg" ALIGN=BOTTOM WIDTH=624 HEIGHT=342 BORDER=0></P>
+</a>
+<P CLASS="western" ALIGN=CENTER STYLE="    text-align-last:  center !important;"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Рисунок
+5. Данные, полученные от НБКИ, в оригинальном виде.</FONT></FONT></P>
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm"><BR>
+</P>
+<a href="/static/img/%D0%A1%D0%9C%D0%9F%20%D0%B4%D0%BB%D1%8F%20%D0%A6%D0%91_html_2eda123d.jpg" class="image-link">
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm"><IMG STYLE="display: block; margin-left: auto; margin-right: auto;" SRC="/static/img/%D0%A1%D0%9C%D0%9F%20%D0%B4%D0%BB%D1%8F%20%D0%A6%D0%91_html_2eda123d.jpg" ALIGN=BOTTOM WIDTH=624 HEIGHT=443 BORDER=0></P>
+</a>
+<P CLASS="western" ALIGN=CENTER STYLE="    text-align-last:  center !important;"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Рисунок
+6. Отображение полученных данных после преобразования.</FONT></FONT></P>
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" ALIGN=JUSTIFY STYLE="text-indent: 1.25cm; margin-bottom: 0cm">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Для ведения досье
+клиента в бумажном виде разработанный ресурс позволяет скачивать
+полученные и обработанные данные в формате </FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN LANG="en-US">pdf</SPAN></FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=3>.
+Пример такого документа приведен на рисунке 7.</FONT></FONT></P>
+<a href="/static/img/%D0%A1%D0%9C%D0%9F%20%D0%B4%D0%BB%D1%8F%20%D0%A6%D0%91_html_7a168e38.jpg" class="image-link">
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm"><IMG STYLE="display: block; margin-left: auto; margin-right: auto;" SRC="/static/img/%D0%A1%D0%9C%D0%9F%20%D0%B4%D0%BB%D1%8F%20%D0%A6%D0%91_html_7a168e38.jpg" ALIGN=BOTTOM WIDTH=423 HEIGHT=405 BORDER=0></P>
+</a>
+<P CLASS="western" ALIGN=CENTER STYLE="    text-align-last:  center !important;"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Рисунок
+7. Полученные и хранимые в бумажном виде сведения.</FONT></FONT></P>
+<P CLASS="western" ALIGN=JUSTIFY STYLE="text-indent: 1.25cm; margin-bottom: 0cm">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Сервис по запросу
+среднемесячных платежей клиента введен в эксплуатацию с 13.09.2023
+года, на данный момент функционирует в штатном режиме и используется
+сотрудниками банка, занимающимися выдачей кредитов. Все задачи,
+поставленные перед отделом ОБТ &ndash; выполнены.</FONT></FONT></P>
+<div id="myModal" class="modal">
+	<span class="close">&times;</span>
+	<img class="modal-content" id="img01">
+</div>
+</div></div> <!--
+</BODY>
+</HTML> -->

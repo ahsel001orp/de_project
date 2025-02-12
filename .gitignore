@@ -4,3 +4,5 @@ airflow/logs
 some_useful.txt
 utils/__pycache__/
 airflow/dags/__pycache__/
+app/__pycache__/
+app/api/__pycache__/
