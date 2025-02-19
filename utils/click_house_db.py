@@ -128,7 +128,9 @@ class ClickHouseDB:
     def get_new_vacances(self) -> list:
         return self.get_query('''
                     SELECT id, name, company_name, translation FROM de_project.vacancies
-                    WHERE toDate(req_time)=toDate(now())
+                    WHERE toDate(req_time)=toDate(now()) AND
+                    multiSearchFirstIndex(lower(description),['fintech','финтех'])>0
+                    ORDER BY translation, publicationDate DESC
                     ''')
     
     def close_connection(self):
@@ -137,7 +139,7 @@ class ClickHouseDB:
 
 if __name__ == '__main__':
     CH = ClickHouseDB()
-    print(CH.get_new_vacances())
+    print(len(CH.get_new_vacances()))
     # key_skils = [
     #     'Python','SQL','ETL','Linux',
     #     'Английский — B1 — Средний','Docker','Apache Airflow',

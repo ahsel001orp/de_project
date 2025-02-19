@@ -1,5 +1,6 @@
 venv/
 airflow/logs
+airflow/*.pid
 *.sh
 some_useful.txt
 utils/__pycache__/

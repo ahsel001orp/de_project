@@ -14,7 +14,7 @@ from airflow.operators.empty import EmptyOperator
 args = {
     'owner': 'de_engineer',
     'depends_on_past': False,
-    'start_date': datetime(2025, 2, 3, tzinfo=timezone('Europe/Moscow')),
+    'start_date': datetime(2025, 2, 12, tzinfo=timezone('Europe/Moscow')),
     'catchup': False,
     'retries': 3,
     'retry_delay': timedelta(minutes=2),
@@ -24,12 +24,13 @@ args = {
 def get_vacancies():
     vacancies = ['data engineer', 'python data backend', 'Дата инженер']
     for vacancy in vacancies:
-        VD = VacDown(vacancies)
+        VD = VacDown(vacancy)
         VD.get_IDs()
         VD.get_all_pages_id()
         VD.get_all_vacancies()
+        VD.insert_vacancies()
         VD.close()
-        tg_str = f'VD.err\nВсего нашлось - {VD.count_vac}\nДобавлено новых - {VD.cont_new_vac}\n'\
+        tg_str = f'{vacancy}\n{VD.err}\nВсего нашлось - {VD.count_vac}\nДобавлено новых - {VD.cont_new_vac}\n'\
             f'Количество ID к которым добавлена 2 профессия - {VD.count_same_vac}'
         run_send_message_to_autor(tg_str)
 
@@ -53,7 +54,7 @@ with DAG(
         python_callable=get_vacancies
     )
 
-    write_clickhouse = PythonOperator(
+    send_new_vacancies = PythonOperator(
         task_id='send_new_vacancies',
         python_callable=send_new_vacancies,
     )
