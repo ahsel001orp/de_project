@@ -1,21 +1,29 @@
 from clickhouse_connect import get_client, driver
+from os import getenv
 
 # Класс для работы с ClickHouse
 class ClickHouseDB:
 
+    # Перед запуском убедитесь, что в переменные среды добавлены 
+    # ch_db_password - пароль от пользователя data_engineer
+    # ch_db_default_pass - пароль от пользователя default, 
+    # который вы задали при установке ClickHouse 
+    # Пароли можно задать запустив set_environ_win.bat для Windows
+    # или set_environ_lin.sh для Linux (устанавливает в переменные пользователя)
     def __init__(self):
         try:
-            self.client = get_client(host='localhost', username='data_engineer', port=8123, password='your_password')
+            self.client = get_client(host='localhost', username='data_engineer', port=8123, password=getenv('ch_db_password'))
         except driver.exceptions.DatabaseError as e:
             self.init_db()
 
+    # Инициализация БД
     def init_db(self):
-        client = get_client(host='localhost', username='default', port=8123, password='your_def_password', )
-        client.command("CREATE USER data_engineer IDENTIFIED BY 'duarF101'")
+        client = get_client(host='localhost', username='default', port=8123, password=getenv('ch_db_default_pass') )
+        client.command(f"CREATE USER data_engineer IDENTIFIED BY '{getenv('ch_db_password')}'")
         client.command('CREATE DATABASE IF NOT EXISTS de_project')
         client.command('GRANT ALL ON de_project.* TO data_engineer WITH GRANT OPTION')
         client.close_connections()
-        self.client = get_client(host='localhost', username='data_engineer', port=8123, password='your_password')
+        self.client = get_client(host='localhost', username='data_engineer', port=8123, password=getenv('ch_db_password'))
         self.init_tables()
 
     def init_tables(self):
@@ -76,7 +84,7 @@ class ClickHouseDB:
         self.client.insert('de_project.ids_from_req_profession', prepared,
                             column_names=['id', 'req_profession'])
 
-    # Для тестирования
+    # Для получения записей из БД
     def get_query(self, ex_str: str) -> list:
         return self.client.query(ex_str).result_rows
 
@@ -84,8 +92,10 @@ class ClickHouseDB:
     def rebuild_table(self):
         self.client.command('ALTER TABLE de_project.vacancies DELETE WHERE 1=1')
         self.client.command('ALTER TABLE de_project.ids_from_req_profession DELETE WHERE 1=1')
+        self.client.command('ALTER TABLE de_project.messages_to_autor DELETE WHERE 1=1')
         self.client.command('DROP TABLE IF EXISTS de_project.vacancies')
         self.client.command('DROP TABLE IF EXISTS de_project.ids_from_req_profession')
+        self.client.command('DROP TABLE IF EXISTS de_project.messages_to_autor')
         self.init_tables()
 
     # Удаление дубликатов на этапе тестирования
@@ -113,19 +123,23 @@ class ClickHouseDB:
                         ''')})
         return result
 
+    # Вакансии для соответствующей html страницы
     def get_vacancies(self, in_key_skills: list) -> list:
         return self.get_query(f'''
                     SELECT 
                     length(arrayIntersect(key_skills, {in_key_skills})) AS intersect_count,
                     id, name, formatDateTime(publicationDate,'%d.%m.%Y'), company_visible_name,
                     company_site_url, area_name, key_skills ,translation FROM de_project.vacancies
-                    HAVING intersect_count>2 ORDER BY toDayOfYear(publicationDate) DESC, intersect_count DESC LIMIT 50
+                    HAVING intersect_count>2 ORDER BY toDayOfYear(publicationDate) DESC, 
+                    intersect_count DESC, translation LIMIT 50
                     ''') 
 
+    # Описание вакансии для соответствующей html страницы
     def get_vacancy(self, id: str) -> list:
         return self.get_query(f'SELECT company_visible_name, description from de_project.vacancies WHERE id={id}')
-    
-    def get_new_vacances(self) -> list:
+
+    # Для отправки в телеграм новых вакансий от финтех компаний  
+    def get_new_fin_vacances(self) -> list:
         return self.get_query('''
                     SELECT id, name, company_name, translation FROM de_project.vacancies
                     WHERE toDate(req_time)=toDate(now()) AND
@@ -138,19 +152,7 @@ class ClickHouseDB:
   
 
 if __name__ == '__main__':
-    CH = ClickHouseDB()
-    print(len(CH.get_new_vacances()))
-    # key_skils = [
-    #     'Python','SQL','ETL','Linux',
-    #     'Английский — B1 — Средний','Docker','Apache Airflow',
-    #     'DWH','Git','ORACLE','Airflow','API','REST API', 'PostgreSQL'
-    # ]
-    # print(CH.get_vacancies(key_skils))
-    #CH.get_old_prof_ids('data engineer')
-    # for skill in CH.get_count_skills():
-    #     print(skill)
-
-    # CH.rebuild_table()
-    # print(CH.get_query('SELECT * FROM de_project.vacancies'))
-    # print(CH.get_query('SELECT * FROM de_project.ids_from_req_profession'))
-    CH.close_connection()
+    pass
+    # CH = ClickHouseDB()
+    # print(CH.get_query('SELECT * FROM de_project.messages_to_autor '))
+    # CH.close_connection()

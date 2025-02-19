@@ -1,6 +1,6 @@
 from sys import path
-#path.append(r'D:\projects\de_project\utils')
-path.append('/home/prostoleha/de_project/utils')
+from pathlib import Path
+path.append(Path(f'../../utils/').resolve())
 from vac_downloader import VacDownloader as VacDown
 from click_house_db import ClickHouseDB as ClickHouse
 from tg_bot import run_send_message_to_autor
@@ -21,6 +21,7 @@ args = {
     'max_active_runs': 1
 }
 
+# Скачиваем новые вакансии по запросам профессий из списка и сохраняем их в БД
 def get_vacancies():
     vacancies = ['data engineer', 'python data backend', 'Дата инженер']
     for vacancy in vacancies:
@@ -34,9 +35,10 @@ def get_vacancies():
             f'Количество ID к которым добавлена 2 профессия - {VD.count_same_vac}'
         run_send_message_to_autor(tg_str)
 
+# Отправляем новые вакансии из финтеха автору
 def send_new_vacancies():
     CH = ClickHouse()
-    new_vacances = CH.get_new_vacances()
+    new_vacances = CH.get_new_fin_vacances()
     for vacancy in new_vacances:
         run_send_message_to_autor(f'{vacancy[1]} - {vacancy[2]} - {vacancy[3][0].split(":")[1]}\nhttps://hh.ru/vacancy/{vacancy[0]}')
 
@@ -66,4 +68,5 @@ with DAG(
     get_vacancies >> send_new_vacancies >> end
 
 # if __name__ == '__main__':
-#     send_new_vacancies()
+#     get_vacancies()
+    #send_new_vacancies()

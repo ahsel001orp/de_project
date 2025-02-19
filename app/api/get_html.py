@@ -1,6 +1,6 @@
 from pathlib import Path
 
-
+# header/footer для всех страниц  
 head_footer = {'head' : '''
     <html lang="ru">
     <head>
@@ -40,18 +40,21 @@ head_footer = {'head' : '''
     '''
     }
 
+# Ключевые навыки
 k_s = [
     'Python','SQL','ETL','Linux',
     'Английский — B1 — Средний','Docker','Apache Airflow',
     'DWH','Git','ORACLE','Airflow','API','REST API', 'PostgreSQL'
     ]
 
+# Получаем html из templates и добавляем header/footer
 def get_html_body(name: str) -> str:
     main_html = ''
     with open(Path(f'app/templates/{name}.html').resolve(), 'r', encoding='utf-8') as file:
         main_html = file.read()
     return head_footer['head'] + main_html + head_footer['footer']
 
+# Генерируем html страницу с вакансиями
 def get_vacancies_html(vacancies: list, key_skils: list) -> str:    
     html = head_footer['head'] +'<div class="page-content"><h2>Для отбора вакансий использовались ключевые навыки:</h2>'
     for key in key_skils:
@@ -66,10 +69,12 @@ def get_vacancies_html(vacancies: list, key_skils: list) -> str:
         html += f'{vacancy[8][0]}<br><a href="/vacancy_id?id={vacancy[1]}">Описание</a></div>'
     return html + head_footer['footer']
 
+# Получаем html страницу с описанием вакансии
 def get_vacancy_html(vacancy: list, id: str) -> str:
      return f'{head_footer["head"]}<div class="page-content services-description">{vacancy[0][0]}<br><div class="scrollable-content">{vacancy[0][1]}'\
             f'<br><a href="https://hh.ru/vacancy/{id}" target="_blank">Откликнуться</a></div></div>{head_footer["footer"]}'
 
+# Получаем html диаграммы с частотой повторяющихся клшючевых навыков по профессиям
 def get_html_skill_frequency(db_skill_frequency: list) -> str:
     html = f'{head_footer["head"]}<section id="home"><div class="page-content"><h1>Ключевые навыки по профессиям</h1><div class="scrollable-content">'
     for frequency in db_skill_frequency:

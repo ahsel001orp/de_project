@@ -127,6 +127,7 @@ class VacDownloader:
                 self.close()
                 break
 
+    # Записываем полученные вакансии в ClickHouse
     def insert_vacancies(self):
         self.cli_db.insert_vacancies(self.vacancies)
         self.cli_db.insert_prof(self.new_prof_ids,self.profession)
@@ -137,22 +138,18 @@ class VacDownloader:
 
 
 if __name__ == '__main__':
-    # vacancies = 'IT-инженер'
-    vacancies = 'data engineer'
-    # vacancies = 'Дата инженер'
-    # vacancies = 'python data backend'
-    VD = VacDownloader(vacancies)    
-    VD.get_IDs()
-    VD.get_all_pages_id()
-    VD.get_all_vacancies()
-    VD.insert_vacancies()    
-    VD.close()
-    print(VD.err)
-    print(f'Всего нашлось - {VD.count_vac}')
-    print(f'Добавлено новых - {VD.cont_new_vac}')
-    print(f'Количество ID к которым добавлена 2 профессия - {VD.count_same_vac}')
-
-
+    pass
+    # vacancies = 'data engineer'
+    # VD = VacDownloader(vacancies)    
+    # VD.get_IDs()
+    # VD.get_all_pages_id()
+    # VD.get_all_vacancies()
+    # VD.insert_vacancies()    
+    # VD.close()
+    # print(VD.err)
+    # print(f'Всего нашлось - {VD.count_vac}')
+    # print(f'Добавлено новых - {VD.cont_new_vac}')
+    # print(f'Количество ID к которым добавлена 2 профессия - {VD.count_same_vac}')
     # VD.get_vacancy('116068295')
     # VD.close()
     # print(VD.err)

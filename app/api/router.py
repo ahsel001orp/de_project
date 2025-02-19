@@ -1,11 +1,7 @@
 from app.api.get_html import *
-#from get_html import *
 from fastapi import APIRouter, Request, Body
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.encoders import jsonable_encoder
-
-# from sys import path
-# path.append('D:/projects/de_project/utils')
 from utils.click_house_db import ClickHouseDB as CHDB
 from utils.tg_bot import send_to_autor_from_fastapi
 
@@ -13,6 +9,7 @@ from utils.tg_bot import send_to_autor_from_fastapi
 router = APIRouter(prefix='', tags=['API'])
 cli_db = CHDB()
 
+# Роутер для всех endpoint
 @router.get('/')
 async def get_main_page(request: Request):    
     return HTMLResponse(content=get_html_skill_frequency(cli_db.get_skill_frequency()), status_code=200)
@@ -50,7 +47,3 @@ async def send_message( req: Request,
     cli_db.insert_messages([[req.client.host,name,tg,message]])
     if send_to_autor_from_fastapi(message)==200: return JSONResponse(content=jsonable_encoder({"ID": "OK"}))
     else: return JSONResponse(content=jsonable_encoder({"ID": "ERROR"}))
-
-
-if __name__ == '__main__':
-    get_html_skill_frequency(cli_db.get_skill_frequency())
