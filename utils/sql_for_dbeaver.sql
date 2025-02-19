@@ -50,11 +50,23 @@ SELECT
 length(arrayIntersect(key_skills, ['Python','SQL','ETL','Linux',
 'Английский — B1 — Средний','Docker','Apache Airflow','DWH','Git',
 'ORACLE','Airflow','API','REST API'])) AS intersect_count,
-de_project.vacancies.* FROM de_project.vacancies 
+id, name, formatDateTime(publicationDate,'%d.%m.%Y'), company_visible_name,
+company_site_url, area_name, description, key_skills ,translation
+ FROM de_project.vacancies HAVING intersect_count>2
 ORDER BY toDayOfYear(publicationDate) DESC, intersect_count DESC
-LIMIT 100
+LIMIT 50
 
 SELECT * FROM de_project.vacancies WHERE has(key_skills,'МСФО')
+
+                    SELECT 
+                    length(arrayIntersect(key_skills,  ['Python','SQL','ETL','Linux',
+'Английский — B1 — Средний','Docker','Apache Airflow','DWH','Git',
+'ORACLE','Airflow','API','REST API'])) AS intersect_count,
+                    id, name, formatDateTime(publicationDate,'%d.%m.%Y'), company_visible_name,
+                    company_site_url, area_name, description, key_skills ,translation
+                    FROM de_project.vacancies ORDER BY toDayOfYear(publicationDate) DESC,
+                    intersect_count DESC LIMIT 50
+
 
 --удаляем кривую загрузку
 SELECT * FROM de_project.vacancies WHERE
@@ -76,3 +88,21 @@ id in (
 
 ALTER TABLE de_project.ids_from_req_profession DELETE WHERE 
 req_profession = 'python data backend'
+
+duarF101
+
+
+select distinct req_profession from de_project.ids_from_req_profession
+
+                        SELECT
+                            element,
+                            COUNT(1) AS count
+                        FROM
+                        (
+                            SELECT arrayJoin(key_skills) AS element
+                            FROM de_project.vacancies WHERE id IN
+                              (SELECT id FROM de_project.ids_from_req_profession 
+                              WHERE req_profession='data engineer')
+                        )
+                        GROUP BY element                        
+                        ORDER BY count DESC LIMIT 50

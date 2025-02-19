@@ -1,7 +1,9 @@
 from sys import path
+#path.append(r'D:\projects\de_project\utils')
 path.append('/home/prostoleha/de_project/utils')
 from vac_downloader import VacDownloader as VacDown
 from click_house_db import ClickHouseDB as ClickHouse
+from tg_bot import run_send_message_to_autor
 from datetime import datetime, timedelta
 from pendulum import timezone
 from airflow import DAG
@@ -20,25 +22,22 @@ args = {
 }
 
 def get_vacancies():
-    # vacancies = 'data engineer'
-    vacancies = 'python data backend'
-    VD = VacDown(vacancies)
-    VD.get_IDs()
-    VD.get_all_pages_id()
-    VD.get_all_vacancies()
-    VD.close()
-    with open ('/home/prostoleha/de_project/dw_result.txt', 'w') as dw_res:
-        dw_res.write(VD.err)
-        dw_res.write(f'\nВсего нашлось - {VD.count_vac}')
-        dw_res.write(f'\nДобавлено новых - {VD.cont_new_vac}')
-        dw_res.write(f'\nКоличество ID к которым добавлена 2 профессия - {VD.count_same_vac}')
+    vacancies = ['data engineer', 'python data backend', 'Дата инженер']
+    for vacancy in vacancies:
+        VD = VacDown(vacancies)
+        VD.get_IDs()
+        VD.get_all_pages_id()
+        VD.get_all_vacancies()
+        VD.close()
+        tg_str = f'VD.err\nВсего нашлось - {VD.count_vac}\nДобавлено новых - {VD.cont_new_vac}\n'\
+            f'Количество ID к которым добавлена 2 профессия - {VD.count_same_vac}'
+        run_send_message_to_autor(tg_str)
 
-def write_clickhouse():
+def send_new_vacancies():
     CH = ClickHouse()
-    skills = CH.get_count_skills()
-    with open ('/home/prostoleha/de_project/dw_result.txt', 'a') as dw_res:
-        for skill in skills:
-            dw_res.write(f'\n{skill[0]} - {skill[1]}')
+    new_vacances = CH.get_new_vacances()
+    for vacancy in new_vacances:
+        run_send_message_to_autor(f'{vacancy[1]} - {vacancy[2]} - {vacancy[3][0].split(":")[1]}\nhttps://hh.ru/vacancy/{vacancy[0]}')
 
 with DAG(
         dag_id='hh_vacancies',
@@ -55,12 +54,15 @@ with DAG(
     )
 
     write_clickhouse = PythonOperator(
-        task_id='write_clickhouse',
-        python_callable=write_clickhouse,
+        task_id='send_new_vacancies',
+        python_callable=send_new_vacancies,
     )
 
     end = EmptyOperator(
         task_id='end',
     )
 
-    get_vacancies >> write_clickhouse >> end
+    get_vacancies >> send_new_vacancies >> end
+
+# if __name__ == '__main__':
+#     send_new_vacancies()

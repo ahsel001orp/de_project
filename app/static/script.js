@@ -21,32 +21,28 @@ var modal = document.getElementById("myModal");
         }
     }
 
-// document.addEventListener('DOMContentLoaded', () => {
-//     const navLinks = document.querySelectorAll('.nav-links a');
-//     const pages = document.querySelectorAll('.page');
-
-//     navLinks.forEach(link => {
-//         link.addEventListener('click', (e) => {
-//             e.preventDefault();
-//             const targetId = link.getAttribute('href').substring(1);
-            
-//             pages.forEach(page => {
-//                 page.classList.remove('active');
-//             });
-
-//             const targetPage = document.getElementById(targetId);
-//             targetPage.classList.add('active');
-            
-//             // Optional: Scroll to top of the page
-//             window.scrollTo(0, 0);
-//         });
-//     });
-
-//     // Optional: Add form submission handling
-//     const contactForm = document.querySelector('.contact-form');
-//     contactForm.addEventListener('submit', (e) => {
-//         e.preventDefault();
-//         alert('Сообщение отправлено! Спасибо за ваш интерес.');
-//         contactForm.reset();
-//     });
-// });
+    async  function post_request(){
+        const guest_tg = document.getElementById("tg").value;
+        if (guest_tg.startsWith("@")){
+        const guest={
+          "name" : document.getElementById("name").value,
+          "tg" : guest_tg,
+          "message" : document.getElementById("message").value
+        };
+        try {
+        const response = await fetch('/send_message',{
+          method: "POST",
+          headers: {
+          "Content-Type": "application/json"
+        }, 
+        body: JSON.stringify(guest)
+        });
+        const result = await response.json();
+        if (result["ID"] != "OK"){alert("Что то пошло не так 😢");}
+        else {alert("Сообщение отправлено!!!спасибо за интерес");}
+      } catch (error) {
+      console.error("Error:", error);
+      }
+    }
+    else {alert("Ваш телеграм в формате @ahsel001orp");}
+      }

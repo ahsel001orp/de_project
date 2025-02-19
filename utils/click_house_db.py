@@ -33,12 +33,21 @@ class ClickHouseDB:
                     CREATE TABLE IF NOT EXISTS de_project.ids_from_req_profession (
                     id UInt32, req_profession String) ENGINE = MergeTree() ORDER BY id
                     ''')
+        # Таблица для хранения сообщений от гостей
+        self.client.command('''
+                    CREATE TABLE IF NOT EXISTS de_project.messages_to_autor (
+                    ip String, name String, tg String, message String) ENGINE = MergeTree() ORDER BY ip
+                    ''')
 
     def insert_vacancies(self, vacancies: list):
         self.client.insert('de_project.vacancies', vacancies,
                             column_names=['id', 'name', 'req_time', 'publicationDate', 'company_name',
                             'company_visible_name', 'company_site_url', 'area_name', 'description',
                             'key_skills', 'compensation', 'translation'])
+        
+    def insert_messages(self, messages: list):
+        self.client.insert('de_project.messages_to_autor', messages,
+                            column_names=['ip', 'name', 'tg', 'message'])
 
     # Для исключения  повторяющихся вакансий       
     def get_old_ids(self) ->  list:
@@ -89,20 +98,20 @@ class ClickHouseDB:
                             )
                             ''')
 
-    # Частота встречаемости ключевых навыков        
-    def get_count_skills(self) -> list:
-        return self.get_query('''
-                        SELECT
-                            element,
-                            COUNT(*) AS count
-                        FROM
-                        (
-                            SELECT arrayJoin(key_skills) AS element
-                            FROM de_project.vacancies
-                        )
-                        GROUP BY element
-                        ORDER BY count DESC
-                        ''')
+    # Частота встречаемости ключевых навыков по профессиям
+    def get_skill_frequency(self) -> list:
+        result = []
+        for profession in self.get_query('select distinct req_profession from de_project.ids_from_req_profession'):
+            result.append({profession[0] : 
+                           self.get_query(f'''
+                        SELECT element, COUNT(1) AS count FROM
+                        ( SELECT arrayJoin(key_skills) AS element
+                            FROM de_project.vacancies WHERE id IN
+                              (SELECT id FROM de_project.ids_from_req_profession 
+                              WHERE req_profession='{profession[0]}'))
+                        GROUP BY element ORDER BY count DESC LIMIT 20
+                        ''')})
+        return result
 
     def get_vacancies(self, in_key_skills: list) -> list:
         return self.get_query(f'''
@@ -116,18 +125,25 @@ class ClickHouseDB:
     def get_vacancy(self, id: str) -> list:
         return self.get_query(f'SELECT company_visible_name, description from de_project.vacancies WHERE id={id}')
     
+    def get_new_vacances(self) -> list:
+        return self.get_query('''
+                    SELECT id, name, company_name, translation FROM de_project.vacancies
+                    WHERE toDate(req_time)=toDate(now())
+                    ''')
+    
     def close_connection(self):
         self.client.close_connections()
   
 
 if __name__ == '__main__':
     CH = ClickHouseDB()
-    key_skils = [
-        'Python','SQL','ETL','Linux',
-        'Английский — B1 — Средний','Docker','Apache Airflow',
-        'DWH','Git','ORACLE','Airflow','API','REST API', 'PostgreSQL'
-    ]
-    print(CH.get_vacancies(key_skils))
+    print(CH.get_new_vacances())
+    # key_skils = [
+    #     'Python','SQL','ETL','Linux',
+    #     'Английский — B1 — Средний','Docker','Apache Airflow',
+    #     'DWH','Git','ORACLE','Airflow','API','REST API', 'PostgreSQL'
+    # ]
+    # print(CH.get_vacancies(key_skils))
     #CH.get_old_prof_ids('data engineer')
     # for skill in CH.get_count_skills():
     #     print(skill)
