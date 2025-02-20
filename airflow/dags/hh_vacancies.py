@@ -1,6 +1,6 @@
 from sys import path
-from pathlib import Path
-path.append(Path(f'../../utils/').resolve())
+from os import getenv
+path.append(f'{getenv("de_project_dir")}/utils/')
 from vac_downloader import VacDownloader as VacDown
 from click_house_db import ClickHouseDB as ClickHouse
 from tg_bot import run_send_message_to_autor
