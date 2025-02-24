@@ -67,7 +67,7 @@ class ClickHouseDB:
                             column_names=['ip', 'req_time', 'headers'])
         
     def check_client_ip(self, ip: str) -> bool:
-        if self.get_query(f"SELECT 'True' FROM de_project.client_headers WHERE toDate(req_time)=toDate(now()) AND ip='{ip}'")[0][0]=='True': return True
+        if len(self.get_query(f"SELECT 1 FROM de_project.client_headers WHERE toDate(req_time)=toDate(now()) AND ip='{ip}'")) > 0: return True
         else: return False
 
     # Для исключения  повторяющихся вакансий       
@@ -167,5 +167,5 @@ class ClickHouseDB:
 if __name__ == '__main__':
     pass
     # CH = ClickHouseDB()
-    # print(CH.check_client_ip('127.0.0.1'))
+    # print(CH.get_query("select headers from  de_project.client_headers"))
     # CH.close_connection()
