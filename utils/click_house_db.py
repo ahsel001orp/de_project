@@ -44,7 +44,7 @@ class ClickHouseDB:
         # Таблица для учета посещений
         self.client.command('''
                     CREATE TABLE IF NOT EXISTS de_project.client_headers (
-                    ip String, req_time DateTime('Europe/Moscow'), headers Array(String)) ENGINE = MergeTree() ORDER BY ip
+                    user_agent String, req_time DateTime('Europe/Moscow'), headers Array(String)) ENGINE = MergeTree() ORDER BY user_agent
                     ''')
         # Таблица для хранения сообщений от гостей
         self.client.command('''
@@ -64,10 +64,10 @@ class ClickHouseDB:
         
     def insert_client_headers(self, client: list):
         self.client.insert('de_project.client_headers', client,
-                            column_names=['ip', 'req_time', 'headers'])
+                            column_names=['user_agent', 'req_time', 'headers'])
         
-    def check_client_ip(self, ip: str) -> bool:
-        if len(self.get_query(f"SELECT 1 FROM de_project.client_headers WHERE toDate(req_time)=toDate(now()) AND ip='{ip}'")) > 0: return True
+    def check_client_ip(self, user_agent: str) -> bool:
+        if len(self.get_query(f"SELECT 1 FROM de_project.client_headers WHERE toDate(req_time)=toDate(now()) AND user_agent='{user_agent}'")) > 0: return True
         else: return False
 
     # Для исключения  повторяющихся вакансий       
@@ -106,9 +106,11 @@ class ClickHouseDB:
         self.client.command('ALTER TABLE de_project.vacancies DELETE WHERE 1=1')
         self.client.command('ALTER TABLE de_project.ids_from_req_profession DELETE WHERE 1=1')
         self.client.command('ALTER TABLE de_project.messages_to_autor DELETE WHERE 1=1')
+        self.client.command('ALTER TABLE de_project.client_headers DELETE WHERE 1=1')
         self.client.command('DROP TABLE IF EXISTS de_project.vacancies')
         self.client.command('DROP TABLE IF EXISTS de_project.ids_from_req_profession')
         self.client.command('DROP TABLE IF EXISTS de_project.messages_to_autor')
+        self.client.command('DROP TABLE IF EXISTS de_project.client_headers')
         self.init_tables()
 
     # Удаление дубликатов на этапе тестирования
@@ -167,5 +169,4 @@ class ClickHouseDB:
 if __name__ == '__main__':
     pass
     # CH = ClickHouseDB()
-    # print(CH.get_query("select headers from  de_project.client_headers"))
     # CH.close_connection()

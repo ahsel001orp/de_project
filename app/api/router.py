@@ -13,12 +13,12 @@ cli_db = CHDB()
 # Роутер для всех endpoint
 @router.get('/')
 async def get_main_page(request: Request):
-    if not cli_db.check_client_ip(request.headers.get('host')):
+    if not cli_db.check_client_ip(request.headers.get('user-agent')):
         headers = []
         for header in request.headers.items():
             headers.append(str(header))
-        cli_db.insert_client_headers([[request.headers.get('host'),datetime.now(),headers]])
-        send_to_autor_from_fastapi(f'Сегодня {request.headers.get("host")} посещал de_project')
+        cli_db.insert_client_headers([[request.headers.get('user-agent'),datetime.now(),headers]])
+        send_to_autor_from_fastapi(f'Сегодня {request.headers.get("user-agent")} посещал de_project')
     return HTMLResponse(content=get_html_skill_frequency(cli_db.get_skill_frequency()), status_code=200)
 
 @router.get('/vacancies')
