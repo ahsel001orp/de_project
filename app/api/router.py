@@ -4,6 +4,7 @@ from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.encoders import jsonable_encoder
 from utils.click_house_db import ClickHouseDB as CHDB
 from utils.tg_bot import send_to_autor_from_fastapi
+from datetime import datetime
 
 
 router = APIRouter(prefix='', tags=['API'])
@@ -11,7 +12,13 @@ cli_db = CHDB()
 
 # Роутер для всех endpoint
 @router.get('/')
-async def get_main_page(request: Request):    
+async def get_main_page(request: Request):
+    if not cli_db.check_client_ip(request.client.host):
+        headers = []
+        for header in request.headers.items():
+            headers.append(str(header))
+        cli_db.insert_client_headers([[request.client.host,datetime.now(),headers]])
+        send_to_autor_from_fastapi(f'Сегодня {request.client.host} посещал de_project')
     return HTMLResponse(content=get_html_skill_frequency(cli_db.get_skill_frequency()), status_code=200)
 
 @router.get('/vacancies')

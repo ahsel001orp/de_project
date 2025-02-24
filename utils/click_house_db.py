@@ -41,21 +41,34 @@ class ClickHouseDB:
                     CREATE TABLE IF NOT EXISTS de_project.ids_from_req_profession (
                     id UInt32, req_profession String) ENGINE = MergeTree() ORDER BY id
                     ''')
+        # Таблица для учета посещений
+        self.client.command('''
+                    CREATE TABLE IF NOT EXISTS de_project.client_headers (
+                    ip String, req_time DateTime('Europe/Moscow'), headers Array(String)) ENGINE = MergeTree() ORDER BY ip
+                    ''')
         # Таблица для хранения сообщений от гостей
         self.client.command('''
                     CREATE TABLE IF NOT EXISTS de_project.messages_to_autor (
                     ip String, name String, tg String, message String) ENGINE = MergeTree() ORDER BY ip
                     ''')
 
-    def insert_vacancies(self, vacancies: list):
+    def insert_vacancies(self, vacancies: list) -> None:
         self.client.insert('de_project.vacancies', vacancies,
                             column_names=['id', 'name', 'req_time', 'publicationDate', 'company_name',
                             'company_visible_name', 'company_site_url', 'area_name', 'description',
                             'key_skills', 'compensation', 'translation'])
         
-    def insert_messages(self, messages: list):
+    def insert_messages(self, messages: list) -> None:
         self.client.insert('de_project.messages_to_autor', messages,
                             column_names=['ip', 'name', 'tg', 'message'])
+        
+    def insert_client_headers(self, client: list):
+        self.client.insert('de_project.client_headers', client,
+                            column_names=['ip', 'req_time', 'headers'])
+        
+    def check_client_ip(self, ip: str) -> bool:
+        if self.get_query(f"SELECT 'True' FROM de_project.client_headers WHERE toDate(req_time)=toDate(now()) AND ip='{ip}'")[0][0]=='True': return True
+        else: return False
 
     # Для исключения  повторяющихся вакансий       
     def get_old_ids(self) ->  list:
@@ -154,5 +167,5 @@ class ClickHouseDB:
 if __name__ == '__main__':
     pass
     # CH = ClickHouseDB()
-    # print(CH.get_query('SELECT * FROM de_project.messages_to_autor '))
+    # print(CH.check_client_ip('127.0.0.1'))
     # CH.close_connection()
