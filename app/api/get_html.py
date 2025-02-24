@@ -76,12 +76,12 @@ def get_vacancy_html(vacancy: list, id: str) -> str:
 
 # Получаем html диаграммы с частотой повторяющихся клшючевых навыков по профессиям
 def get_html_skill_frequency(db_skill_frequency: list) -> str:
-    html = f'{head_footer["head"]}<section id="home"><div class="page-content"><h1>Ключевые навыки по профессиям</h1><div class="scrollable-content">'
+    html = f'{head_footer["head"]}<section id="home"><div class="page-content"><h1>Частота встречаемости ключевых навыков по профессиям</h1><div class="scrollable-content">'
     for frequency in db_skill_frequency:
         profession = list(frequency.keys())[0]
-        html += f'<h3>{profession}</h3><div style="align-items: center; display: flex; justify-content: center;"><div class="profession">'
+        html += f'<h3>{profession}</h3><div style="align-items: center; display: inline-block; margin: 20px; width: 90%"><div class="profession">'
         percent = frequency[profession][0][1]/100
         for skil in frequency[profession]:
-            html += f'<div class="frequency"><span>{skil[0]}</span><div style="flex: 2;"><div style="background-color: rgba(1, 54, 23, 0.514); width: {round(skil[1]/(percent*2),2)}vh; height: 30px;"></div></div><span class="number">{skil[1]}</span></div>'
+            html += f'<div class="frequency"><span>{skil[0]}</span><div style="flex: 1;"><div style="background-color: rgba(1, 54, 23, 0.514); width: {round(skil[1]/(percent),2)}%; height: 30px;"></div></div><span style="text-align: right;">{skil[1]}</span></div>'
         html += '</div></div>'
     return html + '</div></div>' + head_footer['footer']

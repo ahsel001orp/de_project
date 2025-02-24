@@ -23,17 +23,18 @@ args = {
 
 # Скачиваем новые вакансии по запросам профессий из списка и сохраняем их в БД
 def get_vacancies():
-    vacancies = ['data engineer', 'python data backend', 'Дата инженер']
-    for vacancy in vacancies:
-        VD = VacDown(vacancy)
-        VD.get_IDs()
-        VD.get_all_pages_id()
-        VD.get_all_vacancies()
-        VD.insert_vacancies()
-        VD.close()
-        tg_str = f'{vacancy}\n{VD.err}\nВсего нашлось - {VD.count_vac}\nДобавлено новых - {VD.cont_new_vac}\n'\
-            f'Количество ID к которым добавлена 2 профессия - {VD.count_same_vac}'
-        run_send_message_to_autor(tg_str)
+    with open(f'{getenv("de_project_dir")}/professions.txt', encoding='utf-8' ) as professions:
+        for profession in professions.readlines():
+            VD = VacDown(profession.replace('\n',''))
+            VD.get_IDs()
+            VD.get_all_pages_id()
+            VD.get_all_vacancies()
+            VD.insert_vacancies()
+            VD.close()
+            tg_str = f'{profession}{VD.err}\nВсего нашлось - {VD.count_vac}\nДобавлено новых - {VD.cont_new_vac}\n'\
+                f'Количество ID к которым добавлена 2 профессия - {VD.count_same_vac}'
+            run_send_message_to_autor(tg_str)
+        
 
 # Отправляем новые вакансии из финтеха автору
 def send_new_vacancies():
