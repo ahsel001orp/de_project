@@ -42,6 +42,7 @@ def send_new_vacancies():
     new_vacances = CH.get_new_fin_vacances()
     for vacancy in new_vacances:
         run_send_message_to_autor(f'{vacancy[1]} - {vacancy[2]} - {vacancy[3][0].split(":")[1]}\nhttps://hh.ru/vacancy/{vacancy[0]}')
+    CH.close_connections()
 
 with DAG(
         dag_id='hh_vacancies',

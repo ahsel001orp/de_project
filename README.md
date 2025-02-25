@@ -7,7 +7,7 @@
 2) Для корректной работы airflow рекомендую установить [postgresql](https://www.postgresql.org/). После установки необходимо подготовить базу для работы с airflow выполнив команды
 ```
 sudo -iu postgres psql -c "CREATE DATABASE airflow;"
-sudo -iu postgres psql -c "CREATE USER airflow WITH PASSWORD 'your password';"
+sudo -iu postgres psql -c "CREATE USER airflow WITH PASSWORD 'your_password';"
 sudo -iu postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE airflow TO airflow;"
 ```
 3) Клонируйте данный репозиторий:
@@ -44,13 +44,13 @@ CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${A
 pip install "apache-airflow==${AIRFLOW_VERSION}" --constraint "${CONSTRAINT_URL}"
 pip install apache-airflow[postgres]
 ```
-7) Перед запуском airflow поменяйте используемую БД на postgresql из пункта 2, для этого замените в файле конфигурации ($de_project_dir/airflow/airflow.cfg) строку:
+7) Перед запуском airflow поменяйте используемую БД на postgresql из пункта 2, для этого замените в файле конфигурации ($de_project_dir/airflow/airflow.cfg) строку и поменяйте executor для одного хоста
 ```
 sql_alchemy_conn = postgresql+psycopg2://airflow:your_password@localhost/airflow
+executor = LocalExecutor
 ```
-8) Поменяйте executor для одного хоста и инициализируйте БД
+8) Инициализируйте БД
 ```
-executor = LocalExecutor 
 airflow db init
 ```
 9) Создайте пользователя web интерфейса:
@@ -63,7 +63,7 @@ airflow users create \
 --role Admin \
 --email your_email
 ```
-10) В новом окне терминала запускаем [скрипт](https://github.com/ahsel001orp/de_project/blob/master/start_de_project.sh) (для локального запуска закомментируйте строку с ssh туннелем)
+10) В новом окне терминала запускаем [скрипт](https://github.com/ahsel001orp/de_project/blob/master/start_de_project.sh) (для локального режима закомментируйте строку с ssh туннелем)
 ```
 ./start_de_project.sh
 ```
