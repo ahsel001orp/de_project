@@ -1,7 +1,7 @@
 venv/
 airflow/logs
 airflow/*.pid
-airflow/*.cfg
+airflow/airflow.cfg
 utils/__pycache__/
 airflow/dags/__pycache__/
 app/__pycache__/
