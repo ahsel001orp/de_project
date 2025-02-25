@@ -3,10 +3,6 @@ from telegram import Bot
 from asyncio import run
 from requests import get
 
-<<<<<<< HEAD
-token = 'your_token'
-=======
->>>>>>> 849772a... вынес пароли в переменные среды, добавил комментарии
 
 # Отправить сообщение автору
 async def send_message_to_autor(message: str) -> str:
