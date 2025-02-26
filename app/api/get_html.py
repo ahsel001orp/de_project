@@ -42,9 +42,9 @@ head_footer = {'head' : '''
 
 # Ключевые навыки
 k_s = [
-    'Python','SQL','ETL','Linux',
-    'Английский — B1 — Средний','Docker','Apache Airflow',
-    'DWH','Git','ORACLE','Airflow','API','REST API', 'PostgreSQL'
+    'Python','SQL','ETL','Linux', 'ClickHouse', 'Oracle Pl/SQL', 'CI/CD', 'Flask',
+    'Английский — B1 — Средний','Docker','Apache Airflow', 'ELT', 'Bash', 'FastAPI',
+    'DWH','Git','ORACLE','Airflow','API','REST API', 'PostgreSQL', 'СМЭВ', 'Parsing'
     ]
 
 # Получаем html из templates и добавляем header/footer
