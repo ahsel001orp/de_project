@@ -56,9 +56,9 @@ def get_html_body(name: str) -> str:
 
 # Генерируем html страницу с вакансиями
 def get_vacancies_html(vacancies: list, key_skils: list) -> str:    
-    html = head_footer['head'] +'<div class="page-content"><h2>Для отбора вакансий использовались ключевые навыки:</h2>'
+    html = head_footer['head'] +'<div class="page-content"><h3>Для отбора вакансий использовались ключевые навыки:</h3>'
     for key in key_skils:
-        html += f'<div class="nav-button">{key}</div>'
+        html += f'<div class="nav-button" style="line-height: 0.7;">{key}</div>'
     html += '<div class="scrollable-content" style="height: 60vh !important;">'
     for vacancy in vacancies:
         html += f'<div class="vac-container"><h2 style="color: #a77a09;">{vacancy[2]}</h2>Компания - <a href="{vacancy[5]}"'\
