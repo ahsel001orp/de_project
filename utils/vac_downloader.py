@@ -28,31 +28,29 @@ class VacDownloader:
     # Собираем ID вакансий со страниц    
     def get_IDs(self):
         url_all_vac = f'{url}?text={self.profession}&schedule=remote&items_on_page=100&page={self.page_num}'        
-        print(url_all_vac)
+        #print(url_all_vac)
         data = self.hh_session.get(url_all_vac,headers=headers)
         if data.status_code == 200:            
             json_vacancies = loads(BS(data.text, 'lxml').find('noindex').findChild('template').text)
             self.append_vacancies_id(dict(json_vacancies['userLabelsForVacancies']))        
             if self.page_num == 0:
                 count_vac = int(json_vacancies['searchCounts']['value'])
-                print(count_vac)
+                print(f'{self.profession} - {count_vac}')
                 count_page = 0
-                if (count_vac % 100 == 0) and (count_vac > 100) and (count_vac > 100): count_page = count_vac // 100 + 1
+                if (count_vac % 100 == 0) and (count_vac > 100): count_page = count_vac // 100 + 1
                 elif count_vac > 100: count_page = count_vac // 100 + 2
                 self.count_vac = count_vac
-                self.page_num = count_page
+                self.page_num = count_page if count_page<=20 else 20
         else:
             self.close()
-            self.err +=f' / Код ответа не 200 - {data.status_code}'\
-                                     f'Описание - {data.text}'
+            self.err +=f'\nПри сборе вакансий со страницы {url_all_vac} код ответа не 200 - {data.status_code}'
             self.page_num = None
 
     # Получаем информацию о вакансии
     def get_vacancy(self, id: str):
         url_one_vac = f'{url}/{id}'
-        print(url_one_vac)
+        #print(url_one_vac)
         vac = self.hh_session.get(url_one_vac,headers=headers)
-        #print(vac.status_code)
         if vac.status_code == 200:
             check = BS(vac.text, 'lxml').find('noindex').findChild('template')
             if check is None: self.retry_ids.append(id)
@@ -61,8 +59,7 @@ class VacDownloader:
             if len(self.vacancies) > 0:
                 self.insert_vacancies()
             self.close()
-            self.err +=f' / Код ответа не 200 - {vac.status_code}'\
-                                     f'Описание - {vac.text}'
+            self.err +=f'\nПри получении вакнсии {id} код ответа не 200 - {vac.status_code}'                                     
             self.page_num = None
 
     def parse_vacancy(self, json_vacancy: dict, id: str):

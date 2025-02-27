@@ -31,9 +31,15 @@ def get_vacancies():
             VD.get_all_vacancies()
             VD.insert_vacancies()
             VD.close()
-            tg_str = f'{profession}{VD.err}\nВсего нашлось - {VD.count_vac}\nДобавлено новых - {VD.cont_new_vac}\n'\
-                f'Количество ID к которым добавлена 2 профессия - {VD.count_same_vac}'
-            run_send_message_to_autor(tg_str)
+            print(VD.err)
+            tg_str = f'{profession}\nВсего нашлось - {VD.count_vac}\nДобавлено новых - {VD.cont_new_vac}\n'\
+                f'Количество ID к которым добавлена 2 профессия - {VD.count_same_vac}\n{VD.err}'
+            if len(tg_str)>4000:
+                run_send_message_to_autor(f'''
+                {profession}\nВсего нашлось - {VD.count_vac}\nДобавлено новых - {VD.cont_new_vac}
+                Количество ID к которым добавлена 2 профессия - {VD.count_same_vac}\n!!!БЫЛО МНОГО ОШИБОК - СМОТРИ ЛОГ!!!
+                ''')
+            else: run_send_message_to_autor(tg_str)
         
 
 # Отправляем новые вакансии из финтеха автору
@@ -42,7 +48,7 @@ def send_new_vacancies():
     new_vacances = CH.get_new_fin_vacances()
     for vacancy in new_vacances:
         run_send_message_to_autor(f'{vacancy[1]} - {vacancy[2]} - {vacancy[3][0].split(":")[1]}\nhttps://hh.ru/vacancy/{vacancy[0]}')
-    CH.close_connections()
+    CH.close_connection()
 
 with DAG(
         dag_id='hh_vacancies',

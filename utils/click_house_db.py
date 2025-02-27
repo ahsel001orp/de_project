@@ -159,7 +159,7 @@ class ClickHouseDB:
                     SELECT id, name, company_name, translation FROM de_project.vacancies
                     WHERE toDate(req_time)=toDate(now()) AND
                     multiSearchFirstIndex(lower(description),['fintech','финтех'])>0
-                    ORDER BY translation, publicationDate DESC
+                    ORDER BY translation, publicationDate DESC LIMIT 20
                     ''')
     
     def close_connection(self):

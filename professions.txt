@@ -1,3 +1,4 @@
 data engineer
 python data backend
 Дата инженер
+Разработчик Python
